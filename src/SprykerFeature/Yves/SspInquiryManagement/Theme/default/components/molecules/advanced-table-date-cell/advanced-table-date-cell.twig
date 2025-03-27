@@ -6,8 +6,13 @@
 
 {% define data = {
     column: '',
+    config: {
+        options: {
+            format: '',
+        },
+    },
 } %}
 
 {% block body %}
-    {{ date(data.column) | formatDateTime }}
+    {{ data.column | date(data.config.options.format | default(null)) }}
 {% endblock %}
